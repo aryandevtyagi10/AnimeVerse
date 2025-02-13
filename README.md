@@ -1,1 +1,1 @@
-# AnimeVerse
+AnimeVerse is a vibrant online platform dedicated to anime fans who love high-quality visuals. It offers a vast collection of HD and 4K anime wallpapers, featuring characters, scenes, and artwork from popular anime series, movies, and original fan creations. The website is designed for easy navigation, allowing users to browse by categories, series, and resolutions.
