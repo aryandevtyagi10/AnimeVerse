@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Melted Monster';
+    src: url('MeltedMonster.woff2') format('woff2'),
+        url('MeltedMonster.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

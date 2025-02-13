@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'Melted Monster';
+  src: url('fonts/MeltedMonster.woff2') format('woff2'),
+      url('fonts/MeltedMonster.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: roboto;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+#nav {
+  height: 80px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(163,6,6,1) 0%, rgba(255,69,0,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+  box-shadow: 0 4px 10px rgba(255, 69, 0, 0.5);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+#nav-part1, #nav-part3 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#nav h3 {
+  font-size: 18px;
+  border: 2px solid white;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+}
+
+#nav i {
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+#nav h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+#nav button {
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#nav button:hover {
+  background: white;
+  color: rgba(163,6,6,1);
+}
+
+#main>h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 120px;
+  font-family: 'Melted Monster';
+  width: 100%;
+  text-align: center;
+}
+
+.carousel-container {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+  margin-top: 100px;
+  white-space: nowrap;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease-out;
+  animation: scroll 20s linear infinite;
+  width: max-content;
+}
+
+.carousel img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  margin: 0 10px;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+#btm-left {
+  position: absolute;
+  bottom: 2%;
+  left: 3%;
+  font-size: 20px;
+}
