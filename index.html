@@ -3,19 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimeVerse</title>
-    <link
+    <title>AnimeVerse</title><link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
 />
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+    <style>
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            #nav {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+            #nav-part1, #nav-part3 {
+                display: none;
+            }
+            #menu-btn {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+        }
 
+        /* Responsive Carousel */
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 300px;
+            }
+            .carousel img {
+                width: 200px;
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <div id="main">
         <div id="nav">
             <div id="nav-part1">
@@ -23,11 +49,11 @@
                 <h3>Menu</h3>
             </div>
             <div id="nav-part2">
-              <h1>AnimeVerse</h1>
+              <h1 style="font-size: 50px; font-weight: bold; color: #0d0c0c; text-shadow: 3px 3px 10px rgba(165, 3, 3, 0.967);">AnimeVerse - Ultimate Anime Hub</h1>
             </div>
             <div id="nav-part3">
-                <button>Login</button>
-                <button>Sign Up</button>
+                <button id="login-button" onclick="location.href='login.html'">Login</button>
+                <button onclick="location.href='signup.html'">Sign Up</button>
             </div>
         </div>
 
@@ -43,10 +69,45 @@
             </div>
         </div>
 
-        <h5 id="btm-left">"When I Had Nothing And No One,I Always Had Pain" ~ Pain</h5>
+        <h5 id="btm-left">"When I Had Nothing And No One, I Always Had Pain" ~ Pain</h5>
     </div>
 
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("nav-part1").classList.toggle("active");
+            document.getElementById("nav-part3").classList.toggle("active");
+        });
+
+        // Touch Swipe for Carousel
+        let carousel = document.querySelector(".carousel");
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+
+        carousel.addEventListener("mouseleave", () => {
+            isDown = false;
+        });
+
+        carousel.addEventListener("mouseup", () => {
+            isDown = false;
+        });
+
+        carousel.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+    </script>
     <script src="script.js"></script>
-    <script src="sideMenu.js"></script> <!-- Link the new JS file here -->
+    <script src="sideMenu.js"></script>
 </body>
 </html>
